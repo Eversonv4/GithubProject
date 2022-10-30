@@ -20,7 +20,6 @@ export const Container = styled.main`
     transition: 1s ease;
 
     @media (max-width: 430px) {
-      margin-top: 0;
       width: 100px;
       height: 100px;
     }

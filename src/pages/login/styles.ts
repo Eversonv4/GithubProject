@@ -30,7 +30,7 @@ export const LayoutContainer = styled.article`
   form input {
     width: 100%;
     display: block;
-    padding: 6px 10px;
+    padding: 12px 10px;
     font-size: 16px;
     color: #535353;
     border-radius: 6px;
@@ -73,7 +73,7 @@ export const ErrorMessage = styled.span`
 export const GithubIcon = styled(AiFillGithub)`
   height: 96px;
   width: 96px;
-  color: yellow;
+  color: #ffce00;
 `;
 
 export const ArrowRight = styled(FiArrowRight)`

@@ -40,13 +40,19 @@ export function Dashboard() {
       <Header />
       <Container>
         <img src={avatar_url} alt={name} />
-        <h2>{login}</h2>
-        <h3>{email || ""}</h3>
-        <h3>{location || ""}</h3>
+        <h2 style={{ color: "white" }}>{login}</h2>
+        <h3 style={{ color: "white" }}>{email || ""}</h3>
+        <h3 style={{ color: "white" }}>{location || ""}</h3>
 
-        <span>seguidores: {followers}</span>
-        <span>seguindo: {following}</span>
-        <span>repositórios: {public_repos}</span>
+        <span>
+          seguidores: <span style={{ color: "white" }}>{followers}</span>
+        </span>
+        <span>
+          seguindo: <span style={{ color: "white" }}>{following}</span>
+        </span>
+        <span>
+          repositórios: <span style={{ color: "white" }}>{public_repos}</span>
+        </span>
         <h2>BIO</h2>
         <p>{bio || ""}</p>
       </Container>
