@@ -49,7 +49,6 @@ export const LayoutContainer = styled.div`
 export const BackButton = styled.button`
   margin-right: auto;
   width: fit-content;
-  margin-left: 15px;
 `;
 
 export const LogoutIcon = styled(FiLogOut)`
