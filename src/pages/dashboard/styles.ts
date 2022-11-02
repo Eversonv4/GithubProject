@@ -29,7 +29,7 @@ export const UsernameTitle = styled.h2`
   position: relative;
 
   width: fit-content;
-  margin: 0 auto;
+  margin: 20px auto;
 
   :before {
     content: "";
@@ -38,7 +38,7 @@ export const UsernameTitle = styled.h2`
     background-color: #ffce00;
     position: absolute;
     left: -20px;
-    top: 5px;
+    top: 6px;
     border-radius: 8px 0 0 8px;
   }
 `;
@@ -59,7 +59,7 @@ export const BioTitle = styled.h2`
     background-color: #ffce00;
     position: absolute;
     left: -20px;
-    top: 5px;
+    top: 6px;
     border-radius: 8px 0 0 8px;
   }
 `;
