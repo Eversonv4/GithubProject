@@ -122,4 +122,19 @@ export const InfoContainer = styled.div`
       font-size: 17px;
     }
   }
+
+  @media (max-width: 420px) {
+    padding: 0 10px;
+    button {
+      span {
+        font-size: 22px;
+        line-height: 26px;
+      }
+
+      h2 {
+        font-weight: 300;
+        font-size: 14px;
+      }
+    }
+  }
 `;
