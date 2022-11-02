@@ -1,15 +1,25 @@
 import { useEffect } from "react";
-import { Container } from "./styles";
+import {
+  Container,
+  LocationTItle,
+  UsernameTitle,
+  EmailTitle,
+  InfoContainer,
+  BioTitle,
+  Description,
+} from "./styles";
 
-import { Header } from "../../components/Header";
+import { Header } from "components/Header";
 
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
-import { RootState } from "../../shared/store";
-import { LoadAnimation } from "../../components/loadAnimation";
+import { RootState } from "shared/store";
+import { LoadAnimation } from "components/loadAnimation";
+import { getUserData } from "shared/store/Reducers/Auth.store";
 
 export function Dashboard() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const dataUser = useSelector((state: RootState) => state.user);
 
   const {
@@ -26,6 +36,11 @@ export function Dashboard() {
 
   useEffect(() => {
     const isUser = localStorage.getItem("github_user");
+
+    if (isUser) {
+      dispatch(getUserData(isUser));
+    }
+
     if (!isUser) {
       navigate("/login");
     }
@@ -35,26 +50,38 @@ export function Dashboard() {
     return <LoadAnimation />;
   }
 
+  function handleUserDetails(navigateToPage: string) {
+    navigate(navigateToPage);
+  }
+
   return (
     <>
-      <Header />
+      <Header titleHeader={`#${login}`} />
       <Container>
         <img src={avatar_url} alt={name} />
-        <h2 style={{ color: "white" }}>{login}</h2>
-        <h3 style={{ color: "white" }}>{email || ""}</h3>
-        <h3 style={{ color: "white" }}>{location || ""}</h3>
+        <UsernameTitle>{name}</UsernameTitle>
 
-        <span>
-          seguidores: <span style={{ color: "white" }}>{followers}</span>
-        </span>
-        <span>
-          seguindo: <span style={{ color: "white" }}>{following}</span>
-        </span>
-        <span>
-          repositórios: <span style={{ color: "white" }}>{public_repos}</span>
-        </span>
-        <h2>BIO</h2>
-        <p>{bio || ""}</p>
+        <EmailTitle>{email || "eversonv4@gmail.com"}</EmailTitle>
+
+        <LocationTItle>{location || ""}</LocationTItle>
+
+        <BioTitle>BIO</BioTitle>
+        <Description>{bio || ""}</Description>
+
+        <InfoContainer>
+          <button onClick={() => handleUserDetails("/seguidores")}>
+            <span>{followers}</span>
+            <h2>Seguidores</h2>
+          </button>
+          <button onClick={() => handleUserDetails("/seguindo")}>
+            <span>{following}</span>
+            <h2>Seguindo</h2>
+          </button>
+          <button onClick={() => handleUserDetails("/repositorios")}>
+            <span>{public_repos}</span>
+            <h2>Repositórios</h2>
+          </button>
+        </InfoContainer>
       </Container>
     </>
   );

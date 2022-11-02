@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { FiLogOut } from "react-icons/fi";
+import { FiLogOut, FiArrowLeft } from "react-icons/fi";
 
 export const Container = styled.header`
   width: 100%;
@@ -46,10 +46,24 @@ export const LayoutContainer = styled.div`
   }
 `;
 
+export const BackButton = styled.button`
+  margin-right: auto;
+  width: fit-content;
+  margin-left: 15px;
+`;
+
 export const LogoutIcon = styled(FiLogOut)`
   width: 19px;
   height: 19px;
   margin-left: 10px;
 
   color: red;
+`;
+
+export const ArrowLeft = styled(FiArrowLeft)`
+  width: 19px;
+  height: 19px;
+  margin-right: 5px;
+
+  color: #48db00;
 `;

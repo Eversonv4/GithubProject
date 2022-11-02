@@ -11,8 +11,8 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
-import { useDispatch, useSelector } from "react-redux";
-import { getUserData } from "../../shared/store/Reducers/Auth.store";
+import { useDispatch } from "react-redux";
+import { getUserData } from "shared/store/Reducers/Auth.store";
 
 import { useNavigate } from "react-router-dom";
 

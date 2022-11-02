@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { errorMonitor } from "stream";
-import { AppThunk } from "../index";
+import { AppDispatch, AppThunk } from "../index";
 
 const userInfo = createSlice({
   name: "userinfo",
@@ -20,7 +19,7 @@ const userInfo = createSlice({
       state.login = action.payload.login;
       state.avatar_url = action.payload.avatar_url;
       state.name = action.payload.name;
-      state.email = action.payload.login;
+      state.email = action.payload.email;
       state.location = action.payload.location;
       state.followers = action.payload.followers;
       state.following = action.payload.following;
@@ -45,7 +44,7 @@ export const { getUser, logOut } = userInfo.actions;
 export default userInfo.reducer;
 
 export function getUserData(githubUser: string): AppThunk {
-  return async function (dispatch) {
+  return async function (dispatch: AppDispatch) {
     const data = await fetch(`https://api.github.com/users/${githubUser}`)
       .then((response) => {
         if (response.ok) {
@@ -80,7 +79,6 @@ export function getUserData(githubUser: string): AppThunk {
         };
 
         dispatch(getUser(bodyRequest));
-
         return bodyRequest;
       })
       .catch((error) => {
