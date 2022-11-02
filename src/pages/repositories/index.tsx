@@ -30,7 +30,7 @@ export function RepositoriesPage() {
 
   async function GetData() {
     const response = await fetch(
-      `https://api.github.com/users/${githubUser}/repos`
+      `https://api.github.com/users/${githubUser}/repos?page=1&per_page=1000`
     )
       .then((response) => {
         if (response.ok) {
