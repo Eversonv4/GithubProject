@@ -61,7 +61,7 @@ export function Dashboard() {
         <img src={avatar_url} alt={name} />
         <UsernameTitle>{name}</UsernameTitle>
 
-        <EmailTitle>{email || "eversonv4@gmail.com"}</EmailTitle>
+        <EmailTitle>{email || ""}</EmailTitle>
 
         <LocationTItle>{location || ""}</LocationTItle>
 
